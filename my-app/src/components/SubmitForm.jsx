@@ -1,7 +1,10 @@
-export function SubmitFormField() {
+import "../styles/SubmitForm.css"
+import { Button } from "../components/Button";
+
+export function SubmitFormField(props) {
     return(
         <div className="submit-form-field">
-                        <button>Sign In</button>
+                        <Button type="submit" label={props.label} />
                     </div>
     );
 };
