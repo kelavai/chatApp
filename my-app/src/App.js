@@ -9,7 +9,7 @@ function App() {
    return (
     <div>   
     {context.username === '' && <SignInPage />}
-    {context.username !== '' && <ChatPage /> }
+    {context.isSignedIn && <ChatPage /> }
     </div>
   );
 }

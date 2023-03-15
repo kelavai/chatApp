@@ -14,6 +14,7 @@ export function AppProvider(props) {
             setUsername: setUsername,
             avatarIndex: avatarIndex,
             setAvatarIndex: setAvatarIndex,
+            isSignedIn: username !== '',
         }}>
             {props.children}
         </AppContext.Provider>
