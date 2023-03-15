@@ -1,20 +1,15 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { SignInPage } from "./pages/SignInPage";
 import { ChatPage } from "./pages/ChatPage";
-import { Counter } from "./components/Counter";
+import { AppContext } from "./contexts/AppContext";
 
 function App() {
-  const [ username, setUsername ] = useState('');
-  const [ avatarIndex, setAvatarIndex] = useState(0);
-  function handleSubmit(user) {
-    setUsername(user.username);
-    setAvatarIndex(user.avatarIndex);
-  }
+  const context = useContext(AppContext);
+  
    return (
-    <div>
-    <Counter initialValue={0} step={1.23} precision={4} />   
-    {username === '' && <SignInPage  onSubmit={handleSubmit}/>}
-    {username !== '' && <ChatPage username={username} avatarIndex={avatarIndex} /> }
+    <div>   
+    {context.username === '' && <SignInPage />}
+    {context.username !== '' && <ChatPage /> }
     </div>
   );
 }
