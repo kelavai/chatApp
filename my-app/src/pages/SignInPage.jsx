@@ -13,7 +13,10 @@ export function SignInPage(props) {
 
     function handleSubmit(event) {
         event.preventDefault();
-        props.onSubmit(formState)
+        props.onSubmit({
+            username: formState,
+            avatarIndex: avatar, 
+        });
     }
 
     function handleUsernameChange(value) {
@@ -26,11 +29,14 @@ export function SignInPage(props) {
         setAvatar(value)
     }
 
+    console.log(avatar)
+
     
 
     return (
         <div className="sign-in-page">
             <div className="card">
+                    <AvatarFormField onChange={handleAvatarChange} />
                 <form className="sign-in-form" onSubmit={handleSubmit}>
                     <InputFormField label="Username" type="text" onChange={handleUsernameChange} value={formState} />
                     <FormField>
@@ -39,7 +45,7 @@ export function SignInPage(props) {
                     <FormField>
                         <Button type="submit" label="Sign In"/>
                     </FormField>
-                    <AvatarFormField onChange={handleAvatarChange} />
+                    
                 </form>
             </div>
         </div>
