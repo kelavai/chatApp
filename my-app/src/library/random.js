@@ -1,4 +1,4 @@
-const adjectives = ['lijep', 'zgodan', 'pametan'];
+const adjectives = ['ljut', 'lud', 'obazriv'];
 const nouns = ['ivan', 'keli', 'nesto'];
 
 export function getRandomName() {
