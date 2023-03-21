@@ -19,6 +19,6 @@ export function AppProvider(props) {
             {props.children}
         </AppContext.Provider>
 
-    )
+    );
 } 
 
