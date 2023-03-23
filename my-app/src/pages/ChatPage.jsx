@@ -14,6 +14,10 @@ export function ChatPage() {
         setMessages([...messages, message]);
     }
 
+    function handleSignOut() {
+        context.setUsername('');
+    }
+
     const messageComponents = messages.map((message) => {
         return <Message 
         key={message.id} 
@@ -30,6 +34,7 @@ if (!context.isSignedIn) {
     return (
         <div>
             Chat Page
+            <button type="button" onClick={handleSignOut}>Sign out</button>
             <div className="message-list">
                 {messageComponents}
             </div>

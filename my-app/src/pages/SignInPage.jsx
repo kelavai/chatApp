@@ -1,40 +1,18 @@
-import { useEffect } from "react";
-import { useState } from "react";
 import { useContext } from "react";
-import { Navigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { MessageOfTheDay } from "../components/MessageOfTheDay";
 import { SignInForm } from "../components/SignInForm";
 import { AppContext } from "../contexts/AppContext";
-    
+
+
 export function SignInPage() {
     const context = useContext(AppContext);
-    const [data, setData] = useState(null)
-    const [shouldFetch, setShouldFetch] = useState(true)
+    
     
     function handleSubmit(formData) {
         context.setUsername(formData.username);
         context.setAvatarIndex(formData.avatarIndex)
     }
-
-    function handleFetch() {
-        setShouldFetch(true);
-    }
-
-
-    useEffect(() => {
-    if (shouldFetch === true) { 
-        fetch("/assets/data.json")
-            .then(response => {
-                return response.json();
-            })
-            .then(json => {
-                setData(json);
-                setShouldFetch(false);
-            });
-        }        
-    }, [shouldFetch]);        
-    
-
-    console.log(data);
 
     if (context.isSignedIn) {
         return <Navigate to="/chat" replace />;
@@ -42,9 +20,10 @@ export function SignInPage() {
 
     return (
         <div className="sign-in-page">
-            <button type="button" onClick={handleFetch}>Fetch data</button>
+            <MessageOfTheDay/>
             <div className="card">
                 <SignInForm onSubmit={handleSubmit} />
+                <Link to="/faq">Read the FAQ</Link>
             </div>
         </div>
     );

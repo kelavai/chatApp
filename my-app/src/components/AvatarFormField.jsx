@@ -2,13 +2,16 @@ import { useState } from "react";
 import { FormField } from "./FormField";
 import { avatarImages } from "../library/avatar";
 import "../styles/Avatar.css";
+import { useEffect } from "react";
 
 
 
 export function AvatarFormField(props) {
-    const [index, setIndex] = useState(0)
+    const [index, setIndex] = useState(0);
 
-    props.onChange(index);
+    useEffect(() => {
+        props.onChange(index);
+    }, [index, props]);
 
      function next() {
         if(index >= avatarImages.length - 1){
