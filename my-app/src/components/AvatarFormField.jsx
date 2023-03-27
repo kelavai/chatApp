@@ -25,7 +25,7 @@ export function AvatarFormField(props) {
          if(index <= 0) {
             setIndex(avatarImages.length - 1);
         } else {
-            setIndex(index - 1);
+            setIndex(index - 1); 
         }
      }
 

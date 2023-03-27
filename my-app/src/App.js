@@ -5,8 +5,6 @@ import { Route, Routes } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "./contexts/AppContext";
 
-
-
 function App() {
   const context = useContext(AppContext);
    
@@ -17,8 +15,8 @@ function App() {
         <div>Something went wrong: {context.error.toString()}</div>
       </div>
     )
-  }  
-   
+  } 
+
   return (
     <Routes>
       <Route path="/">

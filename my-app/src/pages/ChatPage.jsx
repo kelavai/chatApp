@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useContext } from "react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
@@ -5,13 +6,18 @@ import { Message } from "../components/Message";
 import { MessageForm } from "../components/MessageForm";
 import { AppContext } from "../contexts/AppContext";
 
-
 export function ChatPage() {
     const [messages, setMessages] = useState([]);
+    const [ client, setClient] = useState(null);
+    const [ chatRoom, setChatRoom ] = useState(null);
+    const [ ready, setReady ] = useState(false);
     const context = useContext(AppContext);
 
     function handleSubmit(message) {
-        setMessages([...messages, message]);
+        client.publish({
+            room: 'algebra',
+            message: message,
+        });
     }
 
     function handleSignOut() {
@@ -26,6 +32,34 @@ export function ChatPage() {
         text={message.text} 
     />;
 });
+
+useEffect(() => {
+const drone = new window.Scaledrone('Dm0wecDyuui01dBZ');
+  console.log(drone);
+  drone.on('open', (error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      const room = drone.subscribe('algebra');
+      console.log(room);
+
+      setClient(drone);  
+      setChatRoom(room);
+    }
+    });
+}, []);
+
+useEffect(() =>{
+    if (chatRoom !== null && !ready) {
+        chatRoom.on('data', (data) => {
+            setMessages((messages) => {
+                return [ ...messages, data ];
+            });    
+          });
+
+          setReady(true);
+    }
+}, [chatRoom, ready]);
 
 if (!context.isSignedIn) {
     return <Navigate to="/" replace />;
