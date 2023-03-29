@@ -24,8 +24,6 @@ export function SignInForm(props) {
         setFormState(value);
     }
 
-    console.log(formState);
-
     function handleAvatarChange(value) {
         setAvatar(value)
     }
