@@ -1,4 +1,5 @@
 import { FormField } from "./FormField";
+import "../styles/InputFormField.css";
 
 
 export function InputFormField(props) {
@@ -9,7 +10,7 @@ export function InputFormField(props) {
   return(
     <FormField>
       <label>{props.label}</label>
-      <input type={props.type} onChange={handleChange} value={props.value} />
+      <input className="input-Form-Field" type={props.type} onChange={handleChange} value={props.value} placeholder={props.placeholder} />
     </FormField>
   );                  
 };

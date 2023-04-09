@@ -1,15 +1,15 @@
 import { useState } from "react";
 import { InputFormField } from "../components/InputFormField";
-import { getRandomName } from "../library/random";
 import { FormField } from "../components/FormField";
 import { RandomNameButton } from "../components/RandomNameButton";
 import { Button } from "../components/Button";
 import { AvatarFormField } from "../components/AvatarFormField";
+import "../styles/SignInForm.css"
 
 
 export function SignInForm(props) {
-    
-    const[ formState, setFormState ] = useState(getRandomName());
+
+    const[ formState, setFormState ] = useState('');
     const [avatar, setAvatar ] = useState('')
 
     function handleSubmit(event) {
@@ -31,8 +31,8 @@ export function SignInForm(props) {
     return ( 
         <form className="sign-in-form" onSubmit={handleSubmit}>
             <AvatarFormField onChange={handleAvatarChange} />    
-            <InputFormField 
-                label="Username" 
+            <InputFormField
+                placeholder="Username"
                 type="text" 
                 onChange={handleUsernameChange} 
                 value={formState} />
@@ -42,8 +42,6 @@ export function SignInForm(props) {
             <FormField>
                 <Button type="submit" label="Sign In"/>
             </FormField>
-            
         </form>
-
     );
 }

@@ -1,0 +1,20 @@
+.input-Form-Field {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    line-height: 1.5;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 16px;
+  }
+  
+  .input-Form-Field:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #007bff;
+  }
+  
+  .input-Form-Field::placeholder {
+    color: #999;
+  }
+  

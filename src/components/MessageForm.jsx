@@ -24,8 +24,8 @@ export function MessageForm(props) {
     
     return (
 
-    <form action="" onSubmit={handleSubmit}>
-        <InputFormField label="message" type="text" value={formState} onChange={handleChange} />
+    <form onSubmit={handleSubmit}>
+        <InputFormField placeholder="Message" type="text" value={formState} onChange={handleChange} />
         <SubmitFormField label="Send" />
     </form>   
     );

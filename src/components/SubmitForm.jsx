@@ -1,4 +1,3 @@
-import "../styles/SubmitForm.css"
 import { Button } from "../components/Button";
 
 export function SubmitFormField(props) {

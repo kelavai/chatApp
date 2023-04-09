@@ -1,4 +1,3 @@
-import "../styles/FormField.css"
 
 export function FormField(props) {
     return (

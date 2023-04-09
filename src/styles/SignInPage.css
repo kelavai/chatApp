@@ -1,0 +1,35 @@
+.sign-in-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-color: #f2f2f2;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    min-width: 360px;
+  }
+
+  .card-title{
+    font-family: monospace;
+    font-weight: bold;
+  }
+  
+  .card > *:not(:last-child) {
+    margin-bottom: 20px;
+  }
+  
+  .card > *:last-child {
+    margin-top: 20px;
+  }
+
+  
+  
